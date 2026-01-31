@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="wyglad.css">
+    <title>Walentynka</title>
+</head>
+<body color="white">
+    <div id="lock">
+    <div id="lock-screen"> 
+        <div class="lock-icon">🔒</div>
+            <p id="pPassword">Podaj hasło:</p>
+            <input type="password" id="password-input" placeholder="Podaj sekretne hasło(data)" />
+        <br />
+            <button class="unlock-btn" onclick="Odblokuj()">Odblokuj</button><br>
+                <p id="error-message" style="color: #ff4d6d; font-weight: bold; display: none; margin-top: 15px;">
+                    To nie to hasło, Skarbie! ❤️
+                </p>
+    </div>
+</div> <div id="valentine-screen" style="display: none;">
+    <h1 id="question">Czy zostaniesz moją walentynką? ❤️</h1>
+    <br>
+    <div class="buttons">
+        <button class="yes-btn" onclick=yes()>Tak! ❤️</button>
+        <button class="no-btn" onclick=no()>Nie! 💔</button>
+        </div>
+</div>  
+   <script>
+    let phraseIndex = 0;
+    let yesFontSize = 20;
+
+    const phrases = [
+        "No aha??????",
+        "Pomyśl jeszcze raz...",
+        "Ty się dobrze czujesz?",
+        "Serio mi to robisz?",
+        "Będę płakać... 😢",
+        "Zastanów się dobrze!",
+        "To pomyłka, prawda?"
+    ];
+
+    function no() {
+    const yesBtn = document.querySelector('.yes-btn');
+    const noBtn = document.querySelector('.no-btn');
+    const mainText = document.getElementById('question');
+
+    yesFontSize += 30; 
+    
+    yesBtn.style.fontSize = yesFontSize + "px";
+    
+    let paddingVal = yesFontSize / 2;
+    yesBtn.style.padding = `${paddingVal}px ${paddingVal * 2}px`;
+
+    noBtn.innerText = phrases[phraseIndex];
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    
+    if(yesFontSize > 200) {
+        mainText.innerText = "Nie masz już wyjścia! 😂";
+        noBtn.style.display = "none";
+    }
+}
+    function yes() {
+        document.getElementById('valentine-screen').innerHTML = `
+            <h1 style="font-size: 3rem;">Jupi! 🥰🌹</h1>
+            <p style="font-size: 1.5rem;">Wiedziałem, że się zgodzisz!</p>
+        `;
+        document.body.style.backgroundColor = "#ffccd5";
+    }
+
+    function Odblokuj() {
+    const passwordInput = document.getElementById('password-input');
+    const lockScreen = document.getElementById('lock-screen');
+    const valentineScreen = document.getElementById('valentine-screen');
+    const errorMsg = document.getElementById('error-message');
+    const correctPassword = '09.04.2025'; 
+
+    if (passwordInput.value === correctPassword) {
+        lockScreen.classList.add('fade-out');
+
+        setTimeout(() => {
+            lockScreen.style.display = 'none';
+            
+            valentineScreen.style.display = 'flex';
+            valentineScreen.style.flexDirection = 'column';
+            valentineScreen.style.alignItems = 'center';
+            
+            valentineScreen.classList.add('fade-in'); 
+        }, 400);
+
+    } else {
+        errorMsg.style.display = 'block';
+        passwordInput.classList.add('shake-animation');
+        setTimeout(() => passwordInput.classList.remove('shake-animation'), 300);
+    }
+}
+</script>
+</body>
+</html>

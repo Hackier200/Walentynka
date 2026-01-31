@@ -1,0 +1,156 @@
+@media only screen and (max-width: 390px) {
+    body {
+        min-height: -webkit-fill-available;
+        padding: 20px;
+    }
+
+    #lock-screen, #valentine-screen {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    input#password-input {
+        width: 100%;
+        height: 50px; 
+        font-size: 16px; 
+        box-sizing: border-box;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row; 
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    #yes-btn, #no-btn {
+        flex: 1; 
+        min-width: 120px;
+        padding: 15px;
+    }
+    button {
+    -webkit-tap-highlight-color: transparent; 
+    user-select: none; 
+}
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake-animation {
+  animation: shake 0.3s ease-in-out;
+}
+#question{
+    text-align: center;
+}
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #ff4d6d;
+        }
+#lock-screen {
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+button.unlock-btn{
+    background-color: #ff4d6d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+button.yes-btn {
+             background-color: #43aa8b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+button.no-btn {
+            background-color: #f94144;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+button.yes-btn, button.no-btn {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+.lock-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+#password-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ff4d6d;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            margin-bottom: 30px;
+        }
+#pPassword{
+    color: #ff4d6d;
+    font-weight: bold;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-size: large;
+}
+.buttons {
+    display: flex;          
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;               
+    width: 100%;             
+    margin-top: 20px;
+}
+@keyframes pojawianie {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: pojawianie 0.8s ease-out forwards;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; 
+}
